@@ -9,7 +9,7 @@ The goals / steps of this project are the following:
 
 
 [//]: # (Image References)
-
+[video1]: ./demo.mp4 "demo drive"
 [image1]: ./examples/placeholder.png "Model Visualization"
 [image2]: ./examples/placeholder.png "Grayscaling"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
@@ -37,6 +37,7 @@ Using the Udacity provided simulator and my drive.py file, the car can be driven
 ```sh
 python drive.py model.json
 ```
+A demo of the "self-driving car" can be seen here: [video1]
 
 ####3. Submssion code is usable and readable
 
@@ -63,8 +64,10 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road.
 #####4.1. Udacity Training Set
+The images contained in the Udacity training set were added to the test set. As this set contains a lot of images with small steering angle values, images with higher steering values were added several times. The higher the steering value the more often the image was added. In addition, the left and right images were added to the training set as well with adapted steering angles (+/- 0.15 was added to the steering value of the center image). By doing this, a more or less equal distribution of the steering angles within the training set was achieved.
 
 #####4.2 Self-Recorded Training 
+In addition, to the Udacity pre-recorded training data an own training set was recorded which contained difficult curves and some situations where the car was standing at the wall and went back on track.
 
 
 ###Model Architecture and Training Strategy
