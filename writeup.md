@@ -74,27 +74,25 @@ In addition, to the Udacity pre-recorded training data an own training set was r
 
 ####1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+First, I tried the model described in "traffic sign classification with Keras". This helped to get familiar with Keras. I used the center images of the udacit training set and tried to see whether the trained network predicts some of the training set images correctly. Unfortunatley, this was not the case. I tried a lot things, e.g. changing kernel sizes of convolutional networks,the number of convolutional layers, the number of dense layers, the activation functions, but nothing helped. I even tried to have several output neurons and trained the network to predict "discrete" steering angles such as -0.9, -0.8, ..., -0.1,0,0.1, ..., 0.9, i.e. similar to what we did during the traffic sign classification. But it didn't helped. I never managed to pass the first curve and the predicted steering angles were more or less random.
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+I tried then the Nvidia network as described in [Nvidia](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)
+but it didn't helped either. I then concentrated on image pre-processing and cropped the images by removing 50 pixles from the top and 20 from the bottom. This approach in combination with the Nvidia network started to work. I also reduced the cropped images by a factor of 0.4 and then things started to work.
+ 
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I used 20% for validation. In order to avoid overfitting, I added a dropout layer right before the final output layer. 
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
+As I was still struggling with the sharp curves, I added images with high steering values more frequently to the training set. By doing this, the overall distribution of steering values got more aligned. In addition, I added the left and right images from Udacity with some small correction values.
 
-To combat the overfitting, I modified the model so that ...
-
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+In order not to overemphasize the high steering values, I recorded a few onw tracks focusing on recovery situation, e.g. getting from the wall back to track.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
+One remark: as I am working on a very slow computer without gpu support, I struggled with high throttle values and high resolution simulators. The car is running several times (> 20) around the track for throttle values of 0.2 (or 0.1) with the fast rendering.
 
 ####2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes 
+*
 
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
-
-![alt text][image1]
 
 ####3. Creation of the Training Set & Training Process
 
