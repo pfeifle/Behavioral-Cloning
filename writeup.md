@@ -91,53 +91,53 @@ One remark: as I am working on a very slow computer without gpu support, I strug
 ####2. Final Model Architecture
 
 The final model architecture (model.py lines 140-164) consisted of a convolution neural network with the following layers and layer sizes 
+ 
+Layer (type)                        Output Shape          Param Nrs     Connected to
 ____________________________________________________________________________________________________
-Layer (type)                     Output Shape          Param #     Connected to
-====================================================================================================
-batchnormalization_1 (BatchNorma (None, 36, 128, 3)    12          batchnormalization_input_1[0][0]
+batchnormalization_1 (BatchNorma   (None, 36, 128, 3)    12          batchnormalization_input_1[0][0]
 ____________________________________________________________________________________________________
-convolution2d_1 (Convolution2D)  (None, 8, 26, 24)     1824        batchnormalization_1[0][0]
+convolution2d_1 (Convolution2D)    (None, 8, 26, 24)     1824        batchnormalization_1[0][0]
 ____________________________________________________________________________________________________
-convolution2d_2 (Convolution2D)  (None, 8, 26, 36)     21636       convolution2d_1[0][0]
+convolution2d_2 (Convolution2D)    (None, 8, 26, 36)     21636       convolution2d_1[0][0]
 ____________________________________________________________________________________________________
-maxpooling2d_1 (MaxPooling2D)    (None, 4, 13, 36)     0           convolution2d_2[0][0]
+maxpooling2d_1 (MaxPooling2D)      (None, 4, 13, 36)     0           convolution2d_2[0][0]
 ____________________________________________________________________________________________________
-convolution2d_3 (Convolution2D)  (None, 4, 13, 48)     43248       maxpooling2d_1[0][0]
+convolution2d_3 (Convolution2D)    (None, 4, 13, 48)     43248       maxpooling2d_1[0][0]
 ____________________________________________________________________________________________________
-maxpooling2d_2 (MaxPooling2D)    (None, 2, 7, 48)      0           convolution2d_3[0][0]
+maxpooling2d_2 (MaxPooling2D)      (None, 2, 7, 48)      0           convolution2d_3[0][0]
 ____________________________________________________________________________________________________
-convolution2d_4 (Convolution2D)  (None, 2, 7, 64)      27712       maxpooling2d_2[0][0]
+convolution2d_4 (Convolution2D)    (None, 2, 7, 64)      27712       maxpooling2d_2[0][0]
 ____________________________________________________________________________________________________
-maxpooling2d_3 (MaxPooling2D)    (None, 1, 4, 64)      0           convolution2d_4[0][0]
+maxpooling2d_3 (MaxPooling2D)      (None, 1, 4, 64)      0           convolution2d_4[0][0]
 ____________________________________________________________________________________________________
-convolution2d_5 (Convolution2D)  (None, 1, 4, 64)      36928       maxpooling2d_3[0][0]
+convolution2d_5 (Convolution2D)    (None, 1, 4, 64)      36928       maxpooling2d_3[0][0]
 ____________________________________________________________________________________________________
-maxpooling2d_4 (MaxPooling2D)    (None, 1, 2, 64)      0           convolution2d_5[0][0]
+maxpooling2d_4 (MaxPooling2D)      (None, 1, 2, 64)      0           convolution2d_5[0][0]
 ____________________________________________________________________________________________________
-flatten_1 (Flatten)              (None, 128)           0           maxpooling2d_4[0][0]
+flatten_1 (Flatten)                (None, 128)           0           maxpooling2d_4[0][0]
 ____________________________________________________________________________________________________
-hidden1 (Dense)                  (None, 1164)          150156      flatten_1[0][0]
+hidden1 (Dense)                    (None, 1164)          150156      flatten_1[0][0]
 ____________________________________________________________________________________________________
-activation_1 (Activation)        (None, 1164)          0           hidden1[0][0]
+activation_1 (Activation)          (None, 1164)          0           hidden1[0][0]
 ____________________________________________________________________________________________________
-hidden2 (Dense)                  (None, 200)           233000      activation_1[0][0]
+hidden2 (Dense)                    (None, 200)           233000      activation_1[0][0]
 ____________________________________________________________________________________________________
-activation_2 (Activation)        (None, 200)           0           hidden2[0][0]
+activation_2 (Activation)          (None, 200)           0           hidden2[0][0]
 ____________________________________________________________________________________________________
-hidden3 (Dense)                  (None, 50)            10050       activation_2[0][0]
+hidden3 (Dense)                    (None, 50)            10050       activation_2[0][0]
 ____________________________________________________________________________________________________
-activation_3 (Activation)        (None, 50)            0           hidden3[0][0]
+activation_3 (Activation)          (None, 50)            0           hidden3[0][0]
 ____________________________________________________________________________________________________
-dropout_1 (Dropout)              (None, 50)            0           activation_3[0][0]
+dropout_1 (Dropout)                (None, 50)            0           activation_3[0][0]
 ____________________________________________________________________________________________________
-hidden4 (Dense)                  (None, 20)            1020        dropout_1[0][0]
+hidden4 (Dense)                    (None, 20)            1020        dropout_1[0][0]
 ____________________________________________________________________________________________________
-activation_4 (Activation)        (None, 20)            0           hidden4[0][0]
+activation_4 (Activation)          (None, 20)            0           hidden4[0][0]
 ____________________________________________________________________________________________________
-dropout_2 (Dropout)              (None, 20)            0           activation_4[0][0]
+dropout_2 (Dropout)                (None, 20)            0           activation_4[0][0]
 ____________________________________________________________________________________________________
-Steering_Angle (Dense)           (None, 1)             21          dropout_2[0][0]
-====================================================================================================
+Steering_Angle (Dense)             (None, 1)             21          dropout_2[0][0]
+____________________________________________________________________________________________________
 Total params: 525,607
 Trainable params: 525,601
 Non-trainable params: 6
