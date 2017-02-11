@@ -148,7 +148,11 @@ To capture good driving behavior, I first recorded two laps on track one using c
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to steer back to the center of the lane. The three images below show such a recovery, i.e. steering back to the  of the lane: 
 
 ![alt text][image2]
+
+
 ![alt text][image3]
+
+
 ![alt text][image4]
 
 Then I repeated this process on track two in order to get more data points.
