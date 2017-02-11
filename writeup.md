@@ -11,9 +11,9 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 [video1]: ./demo.mp4 "demo drive"
 [image1]: ./images/lane_center.jpg "Center Lane Driving"
-[image2]: ./images/left_lane_boundary.jpg "Recovery Image 1"
-[image3]: ./images/left_lane_boundary_recovery1.jpg "Recovery Image 2"
-[image4]: ./images/left_lane_boundary_recovery2.jpg "Recovery Image 3"
+[image2]: ./images/recovery1.jpg "Recovery Image 1"
+[image3]: ./images/recovery2.jpg "Recovery Image 2"
+[image4]: ./images/recovery3.jpg "Recovery Image 3"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
